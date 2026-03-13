@@ -71,3 +71,28 @@ public class test {
 
 
 // just sort  the array
+
+
+
+static void heapify(int[] arr, int n, int i, int k){
+
+    int largest = i;
+
+    for(int j = 1; j <= k; j++){
+
+        int child = k*i + j;
+
+        if(child < n && arr[child] > arr[largest]){
+            largest = child;
+        }
+    }
+
+    if(largest != i){
+
+        int temp = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = temp;
+
+        heapify(arr, n, largest, k);
+    }
+}
